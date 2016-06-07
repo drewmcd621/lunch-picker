@@ -27,6 +27,6 @@ exec gunicorn ${DJANGO_WSGI_MODULE}:application \
   --workers $NUM_WORKERS \
   --user $USER \
   --bind=unix:$SOCKFILE \
-  --reload &
+  &
 
 echo "Server up!"
