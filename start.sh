@@ -3,7 +3,7 @@
 NAME="LunchPicker"                             # Name of the application (*)
 DJANGODIR=/var/www/LunchPicker                 # Django project directory (*)
 SOCKFILE=/var/www/sockets/gunicorn.sock        # we will communicate using this unix socket (*)
-USER=www-data                                  # the user to run as (*)
+USER=ubuntu                                  # the user to run as (*)
 GROUP=www-data                                 # the group to run as (*)
 NUM_WORKERS=3                                  # how many worker processes should Gunicorn spawn (*)
 DJANGO_SETTINGS_MODULE=LunchPicker.settings    # which settings file should Django use (*)
@@ -27,6 +27,6 @@ exec gunicorn ${DJANGO_WSGI_MODULE}:application \
   --workers $NUM_WORKERS \
   --user $USER \
   --bind=unix:$SOCKFILE \
-  &
+  --reload  &
 
 echo "Server up!"
