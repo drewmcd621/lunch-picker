@@ -23,6 +23,6 @@ urlpatterns = [
     url(r'^register/$', picker.views.register, name='register'),
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, name='logout'),
-    url(r'^reset/confirm/(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)/$',picker.views.reset_confirm, name='password_reset_confirm'),
+    url(r'^reset/confirm/(?P<user>[0-9A-Za-z]+)-(?P<token>.+)/$',picker.views.reset_confirm, name='password_reset_confirm'),
     url(r'^reset/$', picker.views.reset, name='reset'),
 ]

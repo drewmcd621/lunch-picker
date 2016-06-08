@@ -33,4 +33,6 @@ def reset(request):
         post_reset_redirect=reverse('login'))
 
 
-# .send_email(to_email='drew@drewmcdermott.net', email_template_name='registration/reset/password_reset_email.html', subject_template_name='registration/reset/password_reset_subject.txt', context={}, from_email='cmp.lunchpicker@gmail.com' )
+# from django.contrib.auth.forms import PasswordResetForm
+# p = PasswordResetForm()
+# p.send_mail(to_email='drew@drewmcdermott.net', email_template_name='registration/reset/password_reset_email.html', subject_template_name='registration/reset/password_reset_subject.txt', context={}, from_email='cmp.lunchpicker@gmail.com')
