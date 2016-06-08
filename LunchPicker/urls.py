@@ -21,8 +21,8 @@ import picker.views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^register/$', picker.views.register, name='register'),
-    url(r'^login/$', auth_views.login, name='login'),
-    url(r'^logout/$', auth_views.logout, name='logout'),
+    url(r'^login/$', auth_views.login, name='login', {'template_name': 'auth/login.html'}),
+    url(r'^logout/$', auth_views.logout, name='logout', {'template_name': 'auth/logout.html'}),
     url(r'^reset/confirm/(?P<user>[0-9A-Za-z]+)-(?P<token>.+)/$',picker.views.reset_confirm, name='password_reset_confirm'),
     url(r'^reset/$', picker.views.reset, name='reset'),
     url(r'^$', picker.views.main, name='main')

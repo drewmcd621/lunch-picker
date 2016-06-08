@@ -23,21 +23,21 @@ def register(request):
             return HttpResponseRedirect("/")
     else:
         form = UserCreationForm()
-    return render(request, "registration/register.html", {
+    return render(request, "auth/register.html", {
         'form': form,
     })
 
 
 
 def reset_confirm(request, user=None, token=None):
-    return password_reset_confirm(request, template_name='registration/reset/password_reset_confirm.html',
+    return password_reset_confirm(request, template_name='auth/reset/password_reset_confirm.html',
         uidb64=user, token=token, post_reset_redirect=reverse('login'))
 
 
 def reset(request):
-    return password_reset(request, from_email=settings.DEFAULT_FROM_EMAIL, template_name='registration/reset/password_reset_form.html',
-        email_template_name='registration/reset/password_reset_email.html',
-        subject_template_name='registration/reset/password_reset_subject.txt',
+    return password_reset(request, from_email=settings.DEFAULT_FROM_EMAIL, template_name='auth/reset/password_reset_form.html',
+        email_template_name='auth/reset/password_reset_email.html',
+        subject_template_name='auth/reset/password_reset_subject.txt',
         post_reset_redirect=reverse('login'))
 
 # from django.conf import settings
@@ -46,4 +46,4 @@ def reset(request):
 # u = p.get_users('drew@drewmcdermott.net')
 # for user in u:
 #   print u.email
-# p.send_mail(to_email='drew@drewmcdermott.net', email_template_name='registration/reset/password_reset_email_test.html', subject_template_name='registration/reset/password_reset_subject.txt', context={}, from_email=settings.DEFAULT_FROM_EMAIL)
+# p.send_mail(to_email='drew@drewmcdermott.net', email_template_name='auth/reset/password_reset_email_test.html', subject_template_name='auth/reset/password_reset_subject.txt', context={}, from_email=settings.DEFAULT_FROM_EMAIL)
