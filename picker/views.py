@@ -12,7 +12,7 @@ def register(request):
             new_user = form.save()
             return HttpResponseRedirect("/")
     else:
-        form = UserCreationForm()
+        form = UserCreationFormEmail()
     return render(request, "registration/register.html", {
         'form': form,
     })
