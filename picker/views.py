@@ -2,6 +2,7 @@ from django import forms
 from forms import UserCreationFormEmail
 from django.http import HttpResponseRedirect
 from django.contrib.auth.views import password_reset, password_reset_confirm
+from django.core.urlresolvers import reverse
 from django.shortcuts import render
 
 
