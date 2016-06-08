@@ -15,14 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from django.contrib.auth import views
+from django.contrib.auth import views as auth_views
 import picker.views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^register/$', picker.views.register, name='register'),
-    url(r'^login/$', django.contrib.auth.views.login, name='login'),
-    url(r'^logout/$', django.contrib.auth.views.logout, name='logout'),
+    url(r'^login/$', auth_views.login, name='login'),
+    url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^reset/confirm/(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)/$',picker.views.reset_confirm, name='reset_confirm'),
     url(r'^reset/$', picker.views.reset, name='reset'),
 ]
