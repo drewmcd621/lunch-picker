@@ -27,8 +27,7 @@ def reset_confirm(request, uidb64=None, token=None):
 
 
 def reset(request):
-    return password_reset(request, is_admin_site=False)
-    #
-    # template_name='registration/reset/password_reset_form.html',
-    #     email_template_name='registration/reset/password_reset_email.html',
-    #     subject_template_name='registration/reset/password_reset_subject.txt',
+    return password_reset(request, is_admin_site=False, template_name='registration/reset/password_reset_form.html',
+        email_template_name='registration/reset/password_reset_email.html',
+        subject_template_name='registration/reset/password_reset_subject.txt',
+        post_reset_redirect=reverse('login'))
