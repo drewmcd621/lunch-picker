@@ -23,5 +23,5 @@ urlpatterns = [
     url(r'^logout/$', 'django.contrib.auth.views.logout', name='logout'),
     url(r'^reset/confirm/(?P<uidb36>[0-9A-Za-z]+)-(?P<token>.+)/$','django.contrib.auth.views.password_reset_confirm', name='reset_confirm'),
     url(r'^reset/$', 'django.contrib.auth.views.password_reset', name='reset'),
-    url(r'^reset/done/$', 'django.contrib.auth.views.password_reset_done', name='reset'),
+    url(r'^reset/done/$', 'django.contrib.auth.views.password_reset_done', name='reset_done'),
 ]
