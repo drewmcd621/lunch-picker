@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from forms import UserCreationFormEmail
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
@@ -7,7 +7,7 @@ from django.shortcuts import render
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = UserCreationFormEmail(request.POST)
         if form.is_valid():
             new_user = form.save()
             return HttpResponseRedirect("/")
