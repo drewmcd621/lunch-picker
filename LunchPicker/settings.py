@@ -105,9 +105,8 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'cmp.lunchpicker@gmail.com'
 EMAIL_HOST_PASSWORD = SMTPpassword()
-
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-SERVER_EMAIL = EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = 'cmp.lunchpicker@gmail.com'
+SERVER_EMAIL = 'cmp.lunchpicker@gmail.com'
 
 
 # Internationalization
