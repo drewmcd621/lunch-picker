@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^reset/confirm/(?P<user>[0-9A-Za-z]+)-(?P<token>.+)/$',picker.views.reset_confirm, name='password_reset_confirm'),
     url(r'^reset/$', picker.views.reset, name='reset'),
+    url(r'^/$', picker.views.main, name='main')
 ]

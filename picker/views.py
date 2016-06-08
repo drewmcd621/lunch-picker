@@ -2,11 +2,18 @@ from django import forms
 from forms import UserCreationForm
 from django.http import HttpResponseRedirect
 from django.contrib.auth.views import password_reset, password_reset_confirm
+from django.contrib.auth import authenticate
 from django.core.urlresolvers import reverse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.conf import settings
 
-
+def main(request):
+    if request.user.is_authenticated():
+        #user is good
+        return render(request, "main.html")
+    else:
+        #user not authenticated, redirect
+        return redirect('login')
 
 def register(request):
     if request.method == 'POST':
