@@ -11,6 +11,9 @@ class Restaurant(models.Model):
     address         = models.CharField(max_length=255, blank = True)
     active          = models.BooleanField(default=True)
 
+class Options(models.Model):
+    restaurant      = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
+
 class History(models.Model):
     restaurant      = models.ForeignKey(Restaurant, on_delete=models.PROTECT)
     date            = models.DateField(auto_now_add=True)
