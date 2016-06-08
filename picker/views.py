@@ -1,5 +1,5 @@
 from django import forms
-from forms import UserCreationFormEmail
+from forms import UserCreationForm
 from django.http import HttpResponseRedirect
 from django.contrib.auth.views import password_reset, password_reset_confirm
 from django.core.urlresolvers import reverse
@@ -10,12 +10,12 @@ from django.conf import settings
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreationFormEmail(request.POST)
+        form = UserCreationForm(request.POST)
         if form.is_valid():
             new_user = form.save()
             return HttpResponseRedirect("/")
     else:
-        form = UserCreationFormEmail()
+        form = UserCreationForm()
     return render(request, "registration/register.html", {
         'form': form,
     })
@@ -33,7 +33,10 @@ def reset(request):
         subject_template_name='registration/reset/password_reset_subject.txt',
         post_reset_redirect=reverse('login'))
 
-
+# from django.conf import settings
 # from django.contrib.auth.forms import PasswordResetForm
 # p = PasswordResetForm()
-# p.send_mail(to_email='drew@drewmcdermott.net', email_template_name='registration/reset/password_reset_email_test.html', subject_template_name='registration/reset/password_reset_subject.txt', context={}, from_email='cmp.lunchpicker@gmail.com')
+# u = p.get_users('drew@drewmcdermott.net')
+# for user in u:
+#   print u.email
+# p.send_mail(to_email='drew@drewmcdermott.net', email_template_name='registration/reset/password_reset_email_test.html', subject_template_name='registration/reset/password_reset_subject.txt', context={}, from_email=settings.DEFAULT_FROM_EMAIL)
