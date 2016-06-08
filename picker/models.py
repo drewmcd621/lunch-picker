@@ -16,6 +16,7 @@ class Restaurant(models.Model):
 
 class Options(models.Model):
     restaurant      = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
+    vetoed          = models.BooleanField(default=False)
 
 class History(models.Model):
     restaurant      = models.ForeignKey(Restaurant, on_delete=models.PROTECT)
