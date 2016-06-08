@@ -18,6 +18,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^register/$', 'picker.views.register', name='register'),
     url('^', include('django.contrib.auth.urls')),
 
 ]
