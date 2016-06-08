@@ -21,6 +21,6 @@ urlpatterns = [
     url(r'^register/$', 'picker.views.register', name='register'),
     url(r'^login/$', 'django.contrib.auth.views.login', name='login'),
     url(r'^logout/$', 'django.contrib.auth.views.logout', name='logout'),
-    url(r'^reset/confirm/(?P<uidb36>[0-9A-Za-z]+)-(?P<token>.+)/$','picker.views.reset_confirm', name='reset_confirm'),
+    url(r'^reset/confirm/(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)/$','picker.views.reset_confirm', name='reset_confirm'),
     url(r'^reset/$', 'picker.views.reset', name='reset'),
 ]
