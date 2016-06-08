@@ -21,7 +21,6 @@ urlpatterns = [
     url(r'^register/$', 'picker.views.register', name='register'),
     url(r'^login/$', 'django.contrib.auth.views.login', name='login'),
     url(r'^logout/$', 'django.contrib.auth.views.logout', name='logout'),
-    url(r'^reset/confirm/(?P<uidb36>[0-9A-Za-z]+)-(?P<token>.+)/$','django.contrib.auth.views.password_reset_confirm', {'template_name': 'registration/password_reset_confirm.html'}, name='reset_confirm'),
-    url(r'^reset/$', 'django.contrib.auth.views.password_reset', {'template_name': 'registration/reset/password_reset_form.html', 'email_template_name' : 'registration/reset/password_reset_email.html', 'subject_template_name': 'registration/reset/password_reset_subject.txt'}, name='reset'),
-    url(r'^reset/done/$', 'django.contrib.auth.views.password_reset_done', {'template_name': 'registration/reset/password_reset_done.html'}, name='password_reset_done'),
+    url(r'^reset/confirm/(?P<uidb36>[0-9A-Za-z]+)-(?P<token>.+)/$','picker.views.reset_confirm', name='reset_confirm'),
+    url(r'^reset/$', 'picker.views.reset', name='reset'),
 ]
