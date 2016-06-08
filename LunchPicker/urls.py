@@ -21,7 +21,7 @@ urlpatterns = [
     url(r'^register/$', 'picker.views.register', name='register'),
     url(r'^login/$', 'django.contrib.auth.views.login', name='login'),
     url(r'^logout/$', 'django.contrib.auth.views.logout', name='logout'),
-    url(r'^reset/confirm/(?P<uidb36>[0-9A-Za-z]+)-(?P<token>.+)/$','django.contrib.auth.views.password_reset_confirm', name='reset_confirm'),
-    url(r'^reset/$', 'django.contrib.auth.views.password_reset', name='reset'),
-    url(r'^reset/done/$', 'django.contrib.auth.views.password_reset_done', name='password_reset_done'),
+    url(r'^reset/confirm/(?P<uidb36>[0-9A-Za-z]+)-(?P<token>.+)/$','django.contrib.auth.views.password_reset_confirm', {'template_name': 'picker/templates/registration/password_reset_confirm.html'}, name='reset_confirm'),
+    url(r'^reset/$', 'django.contrib.auth.views.password_reset', {'template_name': 'picker/templates/registration/password_reset.html'}, name='reset'),
+    url(r'^reset/done/$', 'django.contrib.auth.views.password_reset_done', {'template_name': 'picker/templates/registration/password_reset_done.html'}, name='password_reset_done'),
 ]
