@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.views import password_reset, password_reset_confirm
 from django.core.urlresolvers import reverse
 from django.shortcuts import render
+from django.conf import settings
 
 
 
@@ -27,7 +28,7 @@ def reset_confirm(request, user=None, token=None):
 
 
 def reset(request):
-    return password_reset(request, is_admin_site=False, template_name='registration/reset/password_reset_form.html',
+    return password_reset(request, from_email=settings.DEFAULT_FROM_EMAIL, template_name='registration/reset/password_reset_form.html',
         email_template_name='registration/reset/password_reset_email.html',
         subject_template_name='registration/reset/password_reset_subject.txt',
         post_reset_redirect=reverse('login'))
