@@ -16,7 +16,8 @@ def get_choices():
 
     for i in range(0, 3):
         if opts[i]:
-            o = Options(resturaunt=opts[i])
+            o = Options()
+            o.restaurant = opts[i]
             o.save()
 
 
