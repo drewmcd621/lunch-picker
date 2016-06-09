@@ -12,7 +12,7 @@ def get_choices():
     last = History.objects.order_by("-date").first()
     exclude.append(last.restaurant.id)
     #Now lets get the set of places that aren't excluded
-    opts = Restaurant.objects.exclude(id__in=exclude)
+    opts = Restaurant.objects.exclude(id__in=exclude).order_by('?')
 
     #Remove old options
     Options.objects.all().delete()
