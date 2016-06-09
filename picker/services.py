@@ -16,11 +16,7 @@ def get_choices():
     opts = Restaurant.objects.exclude(id__in=exclude)
 
 
-def veto_power():
-    #
 
-def end_vote():
-    #
 
 if __name__ == "__main__":
     get_choices()
