@@ -26,9 +26,10 @@ def vote(request):
         if r_pk:
             rest = Restaurant.objects.get(pk=r_pk)
             if rest:
-                v = Vote()
-                v.user = request.user
-                v.restaurant = rest
+                v, new = Vote.objects.update_or_create(
+                    user=request.user
+                    defaults={"restaurant":rest}
+                )
 
         return redirect('main')
     else:
