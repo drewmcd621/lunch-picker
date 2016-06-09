@@ -6,7 +6,24 @@
 {% endblock %}
 
 {% block body %}
-
+  <div class='container'>
+    <div class='row'>
+      {% for r in options %}
+        <div class='col-md-4 col-sm-12'>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h2 class="panel-title">{{ r.name }}</h2>
+            </div>
+            <div class="panel-body">
+              {{ r.description }}
+              <!-- TODO: Add address stuff -->
+              <!-- TODO: Add vote button -->
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
 
 
 <a href="{% url 'logout' %}">Logout</a>

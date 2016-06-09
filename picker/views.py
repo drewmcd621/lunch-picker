@@ -7,9 +7,13 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import render, redirect
 from django.conf import settings
 
+from picker.models import Options
+
 def main(request):
     if request.user.is_authenticated():
         #user is good
+        opts = Options.objects.all()
+        context = {'options' : opts, 'user' : u}
         return render(request, "main.html")
     else:
         #user not authenticated, redirect

@@ -22,7 +22,3 @@ def get_choices():
             o = Options()
             o.restaurant = opts[i]
             o.save()
-
-
-if __name__ == "__main__":
-    get_choices()
