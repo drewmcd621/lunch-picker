@@ -1,4 +1,4 @@
-from picker.models import Histoy, Restaurant, Options
+from picker.models import History, Restaurant, Options
 import pprint
 
 def get_choices():
