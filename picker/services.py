@@ -14,6 +14,9 @@ def get_choices():
     #Now lets get the set of places that aren't excluded
     opts = Restaurant.objects.exclude(id__in=exclude)
 
+    #Remove old options
+    Options.objects.all().delete()
+
     for i in range(0, 3):
         if opts[i]:
             o = Options()
