@@ -1,8 +1,6 @@
 from picker.models import Histoy, Restaurant, Options
 import pprint
 
-get_choices()
-
 def get_choices():
     exclude = []
     #First see if there are vetoed options
