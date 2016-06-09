@@ -31,10 +31,23 @@
         </div>
       {% endfor %}
     </div>
+    <div class='row'>
+      <div class='col-md-12 col-sm-12'>
+        <form action="{% url 'veto' %}" method="post">
+          {% if vote.veto %}
+            <h3 class='veto'>You are vetoing these options</h3>
+          {% else %}
+            <button type="submit" class="btn btn-lg btn-failure">Veto</button>
+          {% endif %}
+        </form>
+      </div>
+    </div>
+
+    <a href="{% url 'logout' %}">Logout</a>
   </div>
 
 
-<a href="{% url 'logout' %}">Logout</a>
+
 
 
 {% endblock %}

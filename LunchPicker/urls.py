@@ -27,4 +27,5 @@ urlpatterns = [
     url(r'^reset/$', picker.views.reset, name='reset'),
     url(r'^$', picker.views.main, name='main'),
     url(r'^vote/$', picker.views.vote, name='vote')
+    url(r'^veto/$', picker.views.veto, name='veto')
 ]

@@ -28,8 +28,20 @@ def vote(request):
             if rest:
                 v, new = Vote.objects.update_or_create(
                     user=request.user,
-                    defaults={"restaurant":rest},
+                    defaults={"restaurant":rest, "veto":False},
                 )
+
+        return redirect('main')
+    else:
+        #user not authenticated, redirect
+        return redirect('login')
+
+def veto(request):
+    if request.user.is_authenticated():
+        v, new = Vote.objects.update_or_create(
+            user=request.user,
+            defaults={"restaurant":None, "veto":True},
+        )
 
         return redirect('main')
     else:
