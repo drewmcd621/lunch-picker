@@ -13,7 +13,7 @@ def main(request):
     if request.user.is_authenticated():
         #user is good
         opts = Options.objects.all()
-        context = {'options' : opts, 'user' : u}
+        context = {'options' : opts, 'user' : request.user}
         return render(request, "main.html")
     else:
         #user not authenticated, redirect
