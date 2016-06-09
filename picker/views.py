@@ -7,7 +7,7 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import render, redirect
 from django.conf import settings
 
-from picker.models import Option, Vote
+from picker.models import Option, Vote, Restaurant
 
 def main(request):
     if request.user.is_authenticated():
@@ -22,7 +22,15 @@ def main(request):
 
 def vote(request):
     if request.user.is_authenticated():
-        return render(request, "main.html")
+        r_pk = request.POST.get('restaurant')
+        if r_pk:
+            rest = Restaurant.objects.get(pk=r_pk)
+            if rest:
+                v = Vote()
+                v.user = request.user
+                v.restaurant = rest
+
+        return redirect('main')
     else:
         #user not authenticated, redirect
         return redirect('login')
