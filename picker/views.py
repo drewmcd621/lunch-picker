@@ -20,6 +20,13 @@ def main(request):
         #user not authenticated, redirect
         return redirect('login')
 
+def vote(request):
+    if request.user.is_authenticated():
+        return render(request, "main.html")
+    else:
+        #user not authenticated, redirect
+        return redirect('login')
+
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
