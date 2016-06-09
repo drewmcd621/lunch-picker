@@ -14,7 +14,7 @@ def main(request):
         #user is good
         opts = Options.objects.all()
         context = {'options' : opts, 'user' : request.user}
-        return render(request, "main.html")
+        return render(request, "main.html", context)
     else:
         #user not authenticated, redirect
         return redirect('login')
