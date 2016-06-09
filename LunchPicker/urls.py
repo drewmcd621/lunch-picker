@@ -26,6 +26,6 @@ urlpatterns = [
     url(r'^reset/confirm/(?P<user>[0-9A-Za-z]+)-(?P<token>.+)/$',picker.views.reset_confirm, name='password_reset_confirm'),
     url(r'^reset/$', picker.views.reset, name='reset'),
     url(r'^$', picker.views.main, name='main'),
-    url(r'^vote/$', picker.views.vote, name='vote')
-    url(r'^veto/$', picker.views.veto, name='veto')
+    url(r'^vote/$', picker.views.vote, name='vote'),
+    url(r'^veto/$', picker.views.veto, name='veto'),
 ]
