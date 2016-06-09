@@ -17,10 +17,10 @@ def get_choices():
 
 
 def veto_power():
-
+    #
 
 def end_vote():
-
+    #
 
 if __name__ == "__main__":
     get_choices()
