@@ -14,7 +14,7 @@ class Restaurant(models.Model):
     def __str__(self):
         return self.name
 
-class Options(models.Model):
+class Option(models.Model):
     restaurant      = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
     vetoed          = models.BooleanField(default=False)
 
@@ -25,7 +25,7 @@ class History(models.Model):
     def __str__(self):
         return self.date.strftime('%Y-%m-%d')
 
-class Votes(models.Model):
+class Vote(models.Model):
     user            = models.ForeignKey(User, on_delete=models.CASCADE)
     restaurant      = models.ForeignKey(Restaurant, on_delete=models.SET_NULL, null=True)
     veto            = models.BooleanField(default=False)

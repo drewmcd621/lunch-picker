@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 {% block title %}
-  Lunch Picker | Login
+  Lunch Picker
 {% endblock %}
 
 {% block body %}
@@ -10,15 +10,23 @@
     <div class='row'>
       {% for r in options %}
         <div class='col-md-4 col-sm-12'>
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h2 class="panel-title">{{ r.restaurant.name }}</h2>
-            </div>
-            <div class="panel-body">
-              {{ r.restaurant.description }}
-              <!-- TODO: Add address stuff -->
-              <!-- TODO: Add vote button -->
-            </div>
+          <form action="{% url 'vote' %}" method="post">
+            {% csrf_token %}
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h2 class="panel-title">{{ r.restaurant.name }}</h2>
+              </div>
+              <div class="panel-body">
+                {{ r.restaurant.description }}
+                <!-- TODO: Add address stuff -->
+                <input type="hidden" name="restaurant" value="{{r.restaurant.pk}}" />
+                {% if r.restaurant == vote.restaurant %}
+                  <h3 class='vote'>Your choice</h3>
+                {% else %}
+                  <button type="submit" class="btn btn-lg btn-success">Vote!</button>
+                {% endif %}
+              </div>
+            </form>
           </div>
         </div>
       {% endfor %}

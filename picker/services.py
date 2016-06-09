@@ -1,10 +1,10 @@
-from picker.models import History, Restaurant, Options
+from picker.models import History, Restaurant, Option
 import pprint
 
 def get_choices():
     exclude = []
     #First see if there are vetoed options
-    vetoes = Options.objects.filter(vetoed=True)
+    vetoes = Option.objects.filter(vetoed=True)
     for v in vetoes:
         exclude.append(v.restaurant.id)
 
@@ -15,7 +15,7 @@ def get_choices():
     opts = Restaurant.objects.exclude(id__in=exclude).order_by('?')
 
     #Remove old options
-    Options.objects.all().delete()
+    Option.objects.all().delete()
 
     for i in range(0, 3):
         if opts[i]:
