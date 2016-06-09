@@ -12,8 +12,9 @@ def get_choices():
     last = History.objects.order_by("-date").first()
     exclude.append(last.restaurant.id)
     #Now lets get the set of places that aren't excluded
-    pprint.pprint(exclude)
     opts = Restaurant.objects.exclude(id__in=exclude)
+
+    pprint.pprint(opts)
 
 
 
