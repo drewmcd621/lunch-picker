@@ -29,4 +29,4 @@ class Vote(models.Model):
     user            = models.ForeignKey(User, on_delete=models.CASCADE)
     restaurant      = models.ForeignKey(Restaurant, on_delete=models.SET_NULL, null=True)
     veto            = models.BooleanField(default=False)
-    timestamp       = models.DateTimeField(auto_now_add=True)
+    timestamp       = models.DateTimeField(auto_now=True)
